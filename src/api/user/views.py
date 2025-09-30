@@ -4,7 +4,7 @@ from core.models import db_helper,User
 from service.user import user_service
 router = APIRouter()
 
-router.post("sign-up")
+@router.post("sign-up")
 async def sign_up(
     user_form:User = Form(),
     session:AsyncSession = Depends(db_helper.session_dependency),
