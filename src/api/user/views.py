@@ -1,10 +1,11 @@
 from fastapi import APIRouter,Depends,HTTPException,Form
 from sqlalchemy.ext.asyncio import AsyncSession
-from core.models import db_helper,User
+from core.models import db_helper
+from .schemas import User
 from service.user import user_service
-router = APIRouter()
+router = APIRouter(tags=["auth"])
 
-@router.post("sign-up")
+@router.post("/sign-up")
 async def sign_up(
     user_form:User = Form(),
     session:AsyncSession = Depends(db_helper.session_dependency),

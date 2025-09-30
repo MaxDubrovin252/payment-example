@@ -18,7 +18,7 @@ async def create_user(
     username:str,
     password:bytes,
 )->User|None:
-    user_exist = get_user(
+    user_exist = await get_user(
         session=session,
         username=username
     )

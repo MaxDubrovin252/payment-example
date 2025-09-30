@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from core.config import settings
-from api import router
+from api import router 
 import uvicorn
 
 
